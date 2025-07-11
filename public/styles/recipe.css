@@ -388,7 +388,7 @@ RecipeContainer {
     }
 }
 
-.Svg {
+#Svg {
     height: 4vh;
     width: 4vw;
 
@@ -429,7 +429,7 @@ RecipeContainer {
 
 }
 
-.ArrowDownUp {
+#ArrowDownUp {
     color: #4C7C04;
     display: none;
 
@@ -903,7 +903,7 @@ RecipeContainer {
     }
 }
 
-.arrowright {
+#arrowright {
     color: #4c7c04;
     height: 4vh;
     width: 4vw;
@@ -1024,10 +1024,14 @@ RecipeContainer {
     margin-top: 10px;
     width: 4vw;
 
-    // @media (max-width:1409px) {
-    //   height: 3.5vh;
-    //   width: 3vw;
-    // }
+    @media(max-width:1409px) {
+
+        height: 3.5vh;
+
+        width: 3vw;
+
+    }
+
     @media (max-width:886px) {
         height: 5vh;
         width: 5vw;
