@@ -1,0 +1,72 @@
+{
+    "_id": {
+      "$oid": "68656ea0ac29b03db6c970c1"
+    },
+    "dish": "Aloo Ke Gutke-high_protein",
+    "variant": "high_protein",
+    "language": "english",
+    "originalNutrition": {
+      "Calories": 350,
+      "Protein (g)": 10,
+      "Iron (mg)": 2,
+      "Fiber (g)": 4,
+      "Fat (g)": 15
+    },
+    "healthierVersion": {
+      "description": "High-Protein Aloo Ke Gutke is a nutritious and flavorful potato dish that combines the goodness of potatoes, spinach, and paneer. This version is optimized to provide a boost of protein for fitness enthusiasts and health-conscious individuals.",
+      "ingredients": [
+        "1 large potato, diced",
+        "1 cup spinach leaves",
+        "1/2 cup paneer, crumbled",
+        "1/4 cup soya chunks",
+        "1/4 cup low-fat milk",
+        "1 tablespoon olive oil",
+        "1 small onion, finely chopped",
+        "2 cloves garlic, minced",
+        "1 small tomato, diced",
+        "1 teaspoon cumin seeds",
+        "1/2 teaspoon turmeric powder",
+        "Salt, to taste"
+      ],
+      "steps": [
+        "Step 1: Start by boiling the diced potato in low-sodium water until tender. Drain the water and set the potatoes aside.",
+        "Step 2: Heat olive oil in a non-stick pan over medium heat. Add cumin seeds and let them sizzle for a few seconds.",
+        "Step 3: Add the chopped onion and sauté until translucent. Then, add the minced garlic and sauté for another minute.",
+        "Step 4: Add the diced tomato and cook until they're soft and mushy.",
+        "Step 5: Add the crumbled paneer, soya chunks, and boiled potatoes to the pan. Mix well to combine.",
+        "Step 6: Add the low-fat milk and stir continuously until the mixture thickens.",
+        "Step 7: Add the chopped spinach leaves and cook until wilted. Season with turmeric powder and salt to taste."
+      ]
+    },
+    "nutritionComparison": {
+      "before": {
+        "Calories": 350,
+        "Protein (g)": 10,
+        "Iron (mg)": 2,
+        "Fiber (g)": 4,
+        "Fat (g)": 15
+      },
+      "after": {
+        "Calories": 300,
+        "Protein (g)": 25,
+        "Iron (mg)": 3,
+        "Fiber (g)": 6,
+        "Fat (g)": 10
+      }
+    },
+    "substitutions": [
+      {
+        "from": "full-fat milk",
+        "to": "low-fat milk",
+        "why": "to reduce saturated fat content and calorie count"
+      },
+      {
+        "from": "regular paneer",
+        "to": "low-fat paneer",
+        "why": "to reduce saturated fat content and calorie count"
+      }
+    ],
+    "motivationalMessage": "Every bite of this High-Protein Aloo Ke Gutke is a celebration of the rich cultural heritage and the fusion of global flavors that have come to define Indian cuisine. By making healthier choices, you're not only nourishing your body but also honoring the tradition of culinary evolution.",
+    "funFact": "Did you know that potatoes, originally from South America, were believed to have been brought to India by Portuguese traders as early as 1550?",
+    "foodHistoryContext": "Aloo Ke Gutke, a popular Indian dish, has a fascinating history of ingredients that traveled from around the world to India through trade, colonization, and cultural exchange. Potatoes, originally from South America, were brought to India by Portuguese traders in the 16th century. Tomatoes, introduced by Portuguese from the Americas, added a burst of flavor to Indian cuisine. Chilies, introduced by Portuguese from Mexico and South America, brought the heat. Paneer, with techniques from Middle Eastern and Persian influence, became an integral part of Indian dairy. Onions, arriving via Central Asian trade routes, and garlic, from ancient Mediterranean trade, added depth to Indian cooking. The soya chunks, with Chinese influence, provided a plant-based protein source. Aloo Ke Gutke represents this beautiful fusion of global ingredients that became 'Indian' over time, and our healthy modifications continue this ancient tradition."
+}

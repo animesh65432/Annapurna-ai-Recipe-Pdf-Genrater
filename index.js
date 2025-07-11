@@ -1,0 +1,82 @@
+const express = require("express");
+const ejs = require("ejs");
+const puppeteer = require("puppeteer");
+const path = require("path");
+const cors = require("cors");
+const data = require("./data.json")
+
+const app = express();
+
+
+app.set("views", path.resolve(__dirname, "./views"));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "styles")));
+app.set("view engine", "ejs");
+app.use(cors({ origin: ["http://localhost:5173", "https://annapurna-ai.tech"] }));
+app.use(express.json());
+
+app.get("/recipe", async (req, res) => {
+    try {
+        res.render("recipe.ejs", { recipename: data.dish })
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+// app.get("/genereaterecipePdf", async (req, res) => {
+//     try {
+//         // const { recipe } = req.body;
+
+//         // if (!recipe) {
+//         //     return res.status(400).json({
+//         //         message: "recipe is required",
+//         //     });
+//         // }
+
+//         const recipe = data
+//         const html = await ejs.renderFile(
+//             path.join(__dirname, "./views/recipe.ejs"),
+//             { recipe }
+//         );
+
+//         const browser = await puppeteer.launch({
+//             headless: true,
+//             args: ['--no-sandbox', '--disable-setuid-sandbox']
+//         });
+
+//         const page = await browser.newPage();
+
+//         await page.setContent(html, { waitUntil: "networkidle0" });
+
+//         const pdfBuffer = await page.pdf({
+//             format: "A4",
+//             printBackground: true,
+//             margin: {
+//                 top: "20mm",
+//                 right: "20mm",
+//                 bottom: "20mm",
+//                 left: "20mm",
+//             },
+//         });
+
+//         await browser.close();
+
+
+//         res.set({
+//             "Content-Type": "application/pdf",
+//             "Content-Disposition": `attachment; filename=${recipe.dish}.pdf`,
+//             "Content-Length": pdfBuffer.length,
+//         });
+
+//         return res.send(pdfBuffer);
+
+//     } catch (error) {
+//         console.error("PDF generation error:", error);
+//         return res.status(500).json({ message: "Failed to generate PDF" });
+//     }
+// });
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
