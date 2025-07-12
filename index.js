@@ -35,10 +35,10 @@ app.get("/genereaterecipePdf", async (req, res) => {
         //         message: "recipe is required",
         //     });
         // }
+        const recipe = data
         const nutritionComparisonBeforeValues = Object.values(data.nutritionComparison.before)
         const nutritionComparisonAfterValues = Object.values(data.nutritionComparison.after)
-        const title = nutritionTranslations[data.language]
-        const recipe = data
+        const title = nutritionTranslations[recipe.language]
         const html = await ejs.renderFile(
             path.join(__dirname, "./views/recipe.ejs"),
             { recipe, title, nutritionComparisonBeforeValues, nutritionComparisonAfterValues }

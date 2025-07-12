@@ -13,23 +13,19 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 .part{
     height: 100vh;
-    width: 100vw;
+    width: 98vw;
+    overflow-x: hidden;
 }
 .borderpart{
-    margin-left: auto;
+    margin-top: 10px;
+    margin-left:auto;
     margin-right: auto;
     height: 95vh;
     width: 95vw;
+    border: 2px solid #4c7c04;
+    padding: 5px;
 }
 .FoodtitleHeader {
     display: flex;
@@ -1116,3 +1112,32 @@ body {
         padding: 8px;
     }
 }
+
+// *{
+//     outline: 2px solid red;
+// }
+
+@page {
+    margin: 20px;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .part {
+    page-break-inside: avoid;
+  }
+  
+  .borderpart {
+    page-break-inside: avoid;
+  }
+  
+  .recipe,
+  .ingredient,
+  .substitutionCard {
+    page-break-inside: avoid;
+  }
+  
