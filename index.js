@@ -1,6 +1,7 @@
 const express = require("express");
 const ejs = require("ejs");
-const puppeteer = require("puppeteer");
+const chromium = require("@sparticuz/chromium");
+const puppeteerCore = require("puppeteer-core")
 const path = require("path");
 const cors = require("cors");
 const data = require("./data.json")
@@ -28,14 +29,13 @@ app.get("/recipe", async (req, res) => {
 
 app.get("/genereaterecipePdf", async (req, res) => {
     try {
-        // const { recipe } = req.body;
+        const { recipe } = req.body;
 
-        // if (!recipe) {
-        //     return res.status(400).json({
-        //         message: "recipe is required",
-        //     });
-        // }
-        const recipe = data
+        if (!recipe) {
+            return res.status(400).json({
+                message: "recipe is required",
+            });
+        }
         const nutritionComparisonBeforeValues = Object.values(data.nutritionComparison.before)
         const nutritionComparisonAfterValues = Object.values(data.nutritionComparison.after)
         const title = nutritionTranslations[recipe.language]
@@ -44,9 +44,11 @@ app.get("/genereaterecipePdf", async (req, res) => {
             { recipe, title, nutritionComparisonBeforeValues, nutritionComparisonAfterValues }
         );
 
-        const browser = await puppeteer.launch({
-            headless: true,
-            args: ['--no-sandbox', '--disable-setuid-sandbox']
+        const browser = await puppeteerCore.launch({
+            args: chromium.args,
+            defaultViewport: chromium.defaultViewport,
+            executablePath: await chromium.executablePath(),
+            headless: chromium.headless
         });
 
         const page = await browser.newPage();
