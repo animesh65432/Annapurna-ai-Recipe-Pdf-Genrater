@@ -50,6 +50,8 @@ app.post("/genereaterecipePdf/:id", async (req, res) => {
                 message: "recipe is required",
             });
         }
+
+
         const nutritionComparisonBeforeValues = Object.values(data.nutritionComparison.before)
         const nutritionComparisonAfterValues = Object.values(data.nutritionComparison.after)
         const title = nutritionTranslations[recipe.language]
@@ -57,6 +59,9 @@ app.post("/genereaterecipePdf/:id", async (req, res) => {
             path.join(__dirname, "./views/recipe.ejs"),
             { recipe, title, nutritionComparisonBeforeValues, nutritionComparisonAfterValues }
         );
+
+        console.log(html, "html")
+        console.log(recipe, "recipe")
 
         const browser = await puppeteerCore.launch({
             args: chromium.args,
