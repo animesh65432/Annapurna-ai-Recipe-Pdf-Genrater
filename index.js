@@ -52,17 +52,13 @@ app.post("/genereaterecipePdf/:id", async (req, res) => {
         }
 
 
-        const nutritionComparisonBeforeValues = Object.values(data.nutritionComparison.before)
-        const nutritionComparisonAfterValues = Object.values(data.nutritionComparison.after)
+        const nutritionComparisonBeforeValues = Object.values(recipe.nutritionComparison.before)
+        const nutritionComparisonAfterValues = Object.values(recipe.nutritionComparison.after)
         const title = nutritionTranslations[recipe.language]
         const html = await ejs.renderFile(
             path.join(__dirname, "./views/recipe.ejs"),
             { recipe, title, nutritionComparisonBeforeValues, nutritionComparisonAfterValues }
         );
-
-        console.log(html, "html")
-        console.log(recipe, "recipe")
-
         const browser = await puppeteerCore.launch({
             args: chromium.args,
             defaultViewport: chromium.defaultViewport,
