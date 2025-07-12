@@ -27,6 +27,8 @@ app.get("/recipe", async (req, res) => {
     }
 })
 
+
+
 app.post("/genereaterecipePdf", async (req, res) => {
     try {
         const { recipe } = req.body;
