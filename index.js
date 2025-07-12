@@ -1,8 +1,10 @@
 require("dotenv/config")
 const express = require("express");
+const fs = require("fs")
 const ejs = require("ejs");
 const chromium = require("@sparticuz/chromium");
 const puppeteerCore = require("puppeteer-core")
+const puppeteer = require("puppeteer")
 const path = require("path");
 const cors = require("cors");
 const data = require("./data.json")
@@ -22,14 +24,64 @@ app.use(express.json());
 
 app.get("/recipe", async (req, res) => {
     try {
-        const nutritionComparisonBeforeValues = Object.values(data.nutritionComparison.before)
-        const nutritionComparisonAfterValues = Object.values(data.nutritionComparison.after)
-        const title = nutritionTranslations[data.language]
-        res.render("recipe.ejs", { recipe: data, title, nutritionComparisonBeforeValues, nutritionComparisonAfterValues })
+        // Replace `data` with actual recipe data
+        const recipe = data;
+
+        const nutritionComparisonBeforeValues = Object.values(recipe.nutritionComparison.before);
+        const nutritionComparisonAfterValues = Object.values(recipe.nutritionComparison.after);
+        const title = nutritionTranslations[recipe.language];
+
+        // Render EJS template to HTML string
+        const html = await ejs.renderFile(
+            path.join(__dirname, "./views/recipe.ejs"),
+            { recipe, title, nutritionComparisonBeforeValues, nutritionComparisonAfterValues }
+        );
+
+        // Launch Puppeteer
+        const browser = await puppeteer.launch({
+            args: chromium.args,
+            defaultViewport: chromium.defaultViewport,
+            executablePath: await chromium.executablePath(),
+            headless: chromium.headless,
+        });
+
+        const page = await browser.newPage();
+
+        // Set HTML content
+        await page.setContent(html, { waitUntil: "networkidle0" });
+
+        // Add CSS (recommended to inline to avoid loading issues)
+        const cssPath = path.join(__dirname, "public/styles/css/style.css");
+        const cssContent = fs.readFileSync(cssPath, "utf8");
+        await page.addStyleTag({ content: cssContent });
+
+        // Optional: Debug screenshot
+        // await page.screenshot({ path: "debug.png" });
+
+        // Generate PDF
+        const pdfBuffer = await page.pdf({
+            format: "A4",
+            printBackground: true,
+        });
+
+        await browser.close();
+
+        // Send as PDF download
+        res.set({
+            "Content-Type": "application/pdf",
+            "Content-Disposition": `attachment; filename=${recipe.dish.replace(/\s+/g, "_")}.pdf`,
+            "Content-Length": pdfBuffer.length,
+        });
+
+        return res.send(pdfBuffer);
+
     } catch (error) {
-        console.log(error)
+        console.error("Error generating PDF:", error);
+        return res.status(500).json({ message: "Failed to generate recipe PDF." });
     }
-})
+});
+
+
 
 
 
@@ -55,10 +107,13 @@ app.post("/genereaterecipePdf/:id", async (req, res) => {
         const nutritionComparisonBeforeValues = Object.values(recipe.nutritionComparison.before)
         const nutritionComparisonAfterValues = Object.values(recipe.nutritionComparison.after)
         const title = nutritionTranslations[recipe.language]
+
+
         const html = await ejs.renderFile(
             path.join(__dirname, "./views/recipe.ejs"),
             { recipe, title, nutritionComparisonBeforeValues, nutritionComparisonAfterValues }
         );
+
         const browser = await puppeteerCore.launch({
             args: chromium.args,
             defaultViewport: chromium.defaultViewport,
@@ -70,17 +125,17 @@ app.post("/genereaterecipePdf/:id", async (req, res) => {
 
         await page.setContent(html, { waitUntil: "networkidle0" });
 
-        await page.addStyleTag({
-            path: path.join(__dirname, "public/styles/css/style.css")
-        });
-
+        const cssPath = path.join(__dirname, "public/styles/css/style.css");
+        const cssContent = fs.readFileSync(cssPath, "utf8");
+        await page.addStyleTag({ content: cssContent });
 
         const pdfBuffer = await page.pdf({
             format: "A4",
-            printBackground: true
+            printBackground: true,
         });
 
         await browser.close();
+
 
 
         res.set({
