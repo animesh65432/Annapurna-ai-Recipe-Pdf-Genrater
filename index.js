@@ -1,3 +1,4 @@
+require("dotenv/config")
 const express = require("express");
 const ejs = require("ejs");
 const chromium = require("@sparticuz/chromium");
@@ -5,9 +6,12 @@ const puppeteerCore = require("puppeteer-core")
 const path = require("path");
 const cors = require("cors");
 const data = require("./data.json")
+const axios = require("axios")
 const { nutritionTranslations } = require("./utils")
 
 const app = express();
+
+console.log(process.env)
 
 app.set("views", path.resolve(__dirname, "./views"));
 app.use(express.static(path.join(__dirname, "public")));
@@ -29,9 +33,16 @@ app.get("/recipe", async (req, res) => {
 
 
 
-app.post("/genereaterecipePdf", async (req, res) => {
+app.post("/genereaterecipePdf/:id", async (req, res) => {
     try {
-        const { recipe } = req.body;
+        const { id } = req.params
+
+        if (!id) {
+            return res.status(400).json({
+                message: "id is required"
+            })
+        }
+        const recipe = await axios.get(`${process.env.BACKEND_URL}/recipe/GetRecipe?id=${id}`)
 
         if (!recipe) {
             return res.status(400).json({
