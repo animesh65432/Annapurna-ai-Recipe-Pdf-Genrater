@@ -11,13 +11,13 @@ const { nutritionTranslations } = require("./utils")
 
 const app = express();
 
-console.log(process.env)
+console.log(process.env.BACKEND_URL)
 
 app.set("views", path.resolve(__dirname, "./views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "/public/styles")));
 app.set("view engine", "ejs");
-app.use(cors({ origin: ["http://localhost:5173", "https://annapurna-ai.tech"] }));
+app.use(cors({ origin: ["http://localhost:5173", "https://annapurna-ai.tech", `${process.env.BACKEND_URL}`] }));
 app.use(express.json());
 
 app.get("/recipe", async (req, res) => {
