@@ -95,8 +95,8 @@ app.post("/genereaterecipePdf/:id", async (req, res) => {
                 message: "id is required"
             })
         }
-        const reponse = await axios.get(`${process.env.BACKEND_URL}/recipe/GetRecipe?id=${id}`)
-        const recipe = reponse?.data
+        // const reponse = await axios.get(`${process.env.BACKEND_URL}/recipe/GetRecipe?id=${id}`)
+        const recipe = data
         console.log(recipe)
         if (!recipe) {
             return res.status(400).json({
@@ -139,7 +139,7 @@ app.post("/genereaterecipePdf/:id", async (req, res) => {
 
 
 
-        const safeDishName = recipe.dish.replace(/[^a-z0-9_\-]/gi, "_"); // replaces all non-safe chars
+        const safeDishName = recipe.dish.replace(/[^a-z0-9_\-]/gi, "_");
         res.set({
             "Content-Type": "application/pdf",
             "Content-Disposition": `attachment; filename="${safeDishName}.pdf"`,
