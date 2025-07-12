@@ -1,0 +1,1239 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+:root {
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color-scheme: light dark;
+  font-synthesis: none;
+  background: radial-gradient(circle, #F3FFE2 0%, #FCFFF7 100%);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.part {
+  height: 100vh;
+  width: 100vw;
+}
+
+.borderpart {
+  margin-left: auto;
+  margin-right: auto;
+  height: 95vh;
+  width: 95vw;
+}
+
+.FoodtitleHeader {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.Foodtitle {
+  display: flex;
+  align-items: center;
+  font-family: "Philosopher";
+  font-size: 3rem;
+  color: #4C7C04;
+}
+@media (max-width: 1200px) {
+  .Foodtitle {
+    font-size: 2.7rem;
+    padding-left: 20px;
+  }
+}
+@media (max-width: 1000px) {
+  .Foodtitle {
+    gap: 12px;
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 745px) {
+  .Foodtitle {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 645px) {
+  .Foodtitle {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 500px) {
+  .Foodtitle {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 400px) {
+  .Foodtitle {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 361px) {
+  .Foodtitle {
+    font-size: 1.2rem;
+  }
+}
+
+.HealthyFoodIcon {
+  position: relative;
+  height: 6vh;
+  width: 6vw;
+}
+.HealthyFoodIcon img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+@media (max-width: 645px) {
+  .HealthyFoodIcon {
+    height: 8vh;
+    width: 8vw;
+  }
+}
+@media (max-width: 476px) {
+  .HealthyFoodIcon {
+    height: 9vh;
+    width: 9vw;
+  }
+}
+@media (max-width: 420px) {
+  .HealthyFoodIcon {
+    height: 10vh;
+    width: 10vw;
+  }
+}
+
+.ingredientsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (max-width: 880px) {
+  .ingredientsContainer {
+    gap: 0px;
+  }
+}
+
+.ingredientsContainertitle {
+  display: flex;
+  align-items: center;
+  color: #4C7C04;
+  font-family: "Philosopher";
+  font-size: 1.7rem;
+}
+@media (max-width: 1200px) {
+  .ingredientsContainertitle {
+    gap: 10px;
+  }
+}
+@media (max-width: 785px) {
+  .ingredientsContainertitle {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .ingredientsContainertitle {
+    font-size: 1rem;
+  }
+}
+
+.ingredientsSvg {
+  height: 5vh;
+  width: 4vw;
+}
+@media (max-width: 886px) {
+  .ingredientsSvg {
+    height: 8vh;
+    width: 6vw;
+  }
+}
+@media (max-width: 600px) {
+  .ingredientsSvg {
+    height: 8vh;
+    width: 8vw;
+  }
+}
+@media (max-width: 500px) {
+  .ingredientsSvg {
+    height: 8vh;
+    width: 8vw;
+  }
+}
+
+.ingredientsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding-left: 30px;
+  gap: 30px;
+}
+@media (max-width: 1300px) {
+  .ingredientsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 880px) {
+  .ingredientsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+}
+@media (max-width: 500px) {
+  .ingredientsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding-left: 0px;
+  }
+}
+
+.ingredient {
+  color: #4C7C04;
+  font-family: "Inter";
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+@media (max-width: 1000px) {
+  .ingredient {
+    font-size: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .ingredient {
+    font-size: 13px;
+  }
+}
+@media (max-width: 600px) {
+  .ingredient {
+    font-size: 12px;
+  }
+}
+@media (max-width: 370px) {
+  .ingredient {
+    font-size: 11px;
+  }
+}
+
+.Checkbox {
+  height: 2.3vh;
+  width: 1.6vw;
+  background-color: #F2FFDF;
+  border: 1px solid #B2C793;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1130px) {
+  .Checkbox {
+    padding: 5px;
+  }
+}
+@media (max-width: 1000px) {
+  .Checkbox {
+    width: 2.2vw;
+  }
+  .Checkbox img {
+    height: 2vh;
+    width: 1.9vw;
+  }
+}
+@media (max-width: 733px) {
+  .Checkbox {
+    width: 2vw;
+  }
+}
+@media (max-width: 785px) {
+  .Checkbox {
+    height: 2vh;
+  }
+}
+@media (max-width: 600px) {
+  .Checkbox {
+    height: 1.8vh;
+  }
+}
+
+.RecipeContainertitlewithimg {
+  display: flex;
+  align-items: center;
+  color: #4C7C04;
+  font-family: "Philosopher";
+  font-size: 1.5rem;
+  gap: 10px;
+  margin-top: 10px;
+}
+@media (max-width: 1200px) {
+  .RecipeContainertitlewithimg {
+    gap: 10px;
+  }
+}
+@media (max-width: 785px) {
+  .RecipeContainertitlewithimg {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .RecipeContainertitlewithimg {
+    margin-top: 10px;
+    font-size: 1rem;
+    display: flex;
+  }
+}
+
+.recipe {
+  color: #4C7C04;
+  font-family: "Inter";
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding-left: 30px;
+}
+@media (max-width: 1000px) {
+  .recipe {
+    font-size: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .recipe {
+    font-size: 13px;
+  }
+}
+@media (max-width: 600px) {
+  .recipe {
+    font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+  .recipe {
+    padding-left: 0px;
+  }
+}
+@media (max-width: 370px) {
+  .recipe {
+    font-size: 11px;
+  }
+}
+
+.RecipeContainerSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+@media (max-width: 1000px) {
+  .RecipeContainerSteps {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 780px) {
+  .Recipeimg {
+    width: 5vw;
+    height: 5vh;
+  }
+}
+
+.whyTheseChanges {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 30px;
+}
+@media (max-width: 500px) {
+  .whyTheseChanges {
+    gap: 10px;
+    padding-top: 15px;
+  }
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  color: #4C7C04;
+  font-family: "Philosopher";
+  font-size: 1.7rem;
+  gap: 5px;
+}
+@media (max-width: 1200px) {
+  .sectionTitle {
+    gap: 10px;
+  }
+}
+@media (max-width: 785px) {
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .sectionTitle {
+    font-size: 1rem;
+  }
+}
+
+#Svg {
+  height: 4vh;
+  width: 4vw;
+}
+@media (max-width: 886px) {
+  #Svg {
+    height: 5vh;
+    width: 5vw;
+  }
+}
+@media (max-width: 600px) {
+  #Svg {
+    height: 5vh;
+    width: 5vw;
+  }
+}
+@media (max-width: 500px) {
+  #Svg {
+    height: 5vh;
+    width: 5vw;
+  }
+}
+
+.comparisonContainer {
+  display: flex;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 636px) {
+  .comparisonContainer {
+    width: 92%;
+  }
+}
+@media (max-width: 500px) {
+  .comparisonContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+#ArrowDownUp {
+  color: #4C7C04;
+  display: none;
+}
+@media (max-width: 500px) {
+  #ArrowDownUp {
+    display: block;
+    height: 4vh;
+    width: 4vw;
+  }
+}
+
+.BeforcomparisonColumn {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid #4C7C04;
+  border-radius: 5px;
+  color: #4C7C04;
+}
+.BeforcomparisonColumn .before {
+  border-bottom: 1px solid #4C7C04;
+  width: 95%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  color: #4C7C04;
+  font-family: "Crimson+Pro";
+  font-size: 1.7rem;
+  gap: 5px;
+}
+@media (max-width: 1340px) {
+  .BeforcomparisonColumn .before {
+    width: 94%;
+  }
+}
+@media (max-width: 1200px) {
+  .BeforcomparisonColumn .before {
+    gap: 10px;
+  }
+}
+@media (max-width: 1101) {
+  .BeforcomparisonColumn .before {
+    width: 92%;
+  }
+}
+@media (max-width: 867px) {
+  .BeforcomparisonColumn .before {
+    width: 91%;
+  }
+}
+@media (max-width: 785px) {
+  .BeforcomparisonColumn .before {
+    font-size: 1.5rem;
+    width: 90%;
+  }
+}
+@media (max-width: 644px) {
+  .BeforcomparisonColumn .before {
+    width: 87%;
+  }
+}
+@media (max-width: 627px) {
+  .BeforcomparisonColumn .before {
+    width: 86%;
+  }
+}
+@media (max-width: 586px) {
+  .BeforcomparisonColumn .before {
+    width: 85%;
+  }
+}
+@media (max-width: 551px) {
+  .BeforcomparisonColumn .before {
+    width: 84%;
+  }
+}
+@media (max-width: 500px) {
+  .BeforcomparisonColumn .before {
+    font-size: 1rem;
+    width: 91%;
+  }
+}
+@media (max-width: 469px) {
+  .BeforcomparisonColumn .before {
+    font-size: 1rem;
+    width: 90%;
+  }
+}
+@media (max-width: 400px) {
+  .BeforcomparisonColumn .before {
+    font-size: 1rem;
+    width: 89%;
+  }
+}
+@media (max-width: 400px) {
+  .BeforcomparisonColumn .before {
+    font-size: 1rem;
+    width: 87%;
+  }
+}
+.BeforcomparisonColumn .BeforenutritionValues {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 30px;
+  padding-bottom: 10px;
+}
+@media (max-width: 1000px) {
+  .BeforcomparisonColumn .BeforenutritionValues {
+    font-size: 15px;
+  }
+}
+@media (max-width: 867px) {
+  .BeforcomparisonColumn .BeforenutritionValues {
+    width: 91%;
+  }
+}
+@media (max-width: 700px) {
+  .BeforcomparisonColumn .BeforenutritionValues {
+    font-size: 13px;
+  }
+}
+@media (max-width: 600px) {
+  .BeforcomparisonColumn .BeforenutritionValues {
+    font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+  .BeforcomparisonColumn .BeforenutritionValues {
+    padding-left: 0px;
+  }
+}
+@media (max-width: 370px) {
+  .BeforcomparisonColumn .BeforenutritionValues {
+    font-size: 11px;
+  }
+}
+@media (max-width: 679px) {
+  .BeforcomparisonColumn {
+    width: 40%;
+  }
+}
+@media (max-width: 500px) {
+  .BeforcomparisonColumn {
+    width: 85%;
+    align-items: center;
+  }
+}
+
+.arrow {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 679px) {
+  .arrow {
+    width: 7%;
+  }
+}
+
+.AftercomparisonColumn {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid #4C7C04;
+  border-radius: 5px;
+  color: #4C7C04;
+}
+.AftercomparisonColumn .after {
+  border-bottom: 1px solid #4C7C04;
+  padding-left: 30px;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #4C7C04;
+  font-family: "Crimson+Pro";
+  font-size: 1.7rem;
+  gap: 5px;
+}
+@media (max-width: 1340px) {
+  .AftercomparisonColumn .after {
+    width: 94%;
+  }
+}
+@media (max-width: 1200px) {
+  .AftercomparisonColumn .after {
+    gap: 10px;
+  }
+}
+@media (max-width: 1101) {
+  .AftercomparisonColumn .after {
+    width: 92%;
+  }
+}
+@media (max-width: 867px) {
+  .AftercomparisonColumn .after {
+    width: 91%;
+  }
+}
+@media (max-width: 785px) {
+  .AftercomparisonColumn .after {
+    font-size: 1.5rem;
+    width: 90%;
+  }
+}
+@media (max-width: 644px) {
+  .AftercomparisonColumn .after {
+    width: 87%;
+  }
+}
+@media (max-width: 627px) {
+  .AftercomparisonColumn .after {
+    width: 86%;
+  }
+}
+@media (max-width: 586px) {
+  .AftercomparisonColumn .after {
+    width: 85%;
+  }
+}
+@media (max-width: 551px) {
+  .AftercomparisonColumn .after {
+    width: 84%;
+  }
+}
+@media (max-width: 500px) {
+  .AftercomparisonColumn .after {
+    font-size: 1rem;
+    width: 91%;
+  }
+}
+@media (max-width: 469px) {
+  .AftercomparisonColumn .after {
+    font-size: 1rem;
+    width: 90%;
+  }
+}
+@media (max-width: 400px) {
+  .AftercomparisonColumn .after {
+    font-size: 1rem;
+    width: 89%;
+  }
+}
+@media (max-width: 400px) {
+  .AftercomparisonColumn .after {
+    font-size: 1rem;
+    width: 87%;
+  }
+}
+.AftercomparisonColumn .AfternutritionValues {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}
+@media (max-width: 1000px) {
+  .AftercomparisonColumn .AfternutritionValues {
+    font-size: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .AftercomparisonColumn .AfternutritionValues {
+    font-size: 13px;
+  }
+}
+@media (max-width: 600px) {
+  .AftercomparisonColumn .AfternutritionValues {
+    font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+  .AftercomparisonColumn .AfternutritionValues {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 370px) {
+  .AftercomparisonColumn .AfternutritionValues {
+    font-size: 11px;
+  }
+}
+@media (max-width: 679px) {
+  .AftercomparisonColumn {
+    width: 40%;
+  }
+}
+@media (max-width: 500px) {
+  .AftercomparisonColumn {
+    width: 85%;
+  }
+}
+
+.BeforenutritionValue {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+@media (max-width: 900px) {
+  .BeforenutritionValue {
+    gap: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .BeforenutritionValue {
+    left: 10px;
+  }
+}
+
+.AfternutritionValue {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+@media (max-width: 900px) {
+  .AfternutritionValue {
+    gap: 10px;
+  }
+}
+
+.sectionTitleForwhyTheseChanges {
+  display: flex;
+  color: #4C7C04;
+  font-family: "Philosopher";
+  font-size: 1.7rem;
+  padding-left: 10px;
+}
+@media (max-width: 785px) {
+  .sectionTitleForwhyTheseChanges {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .sectionTitleForwhyTheseChanges {
+    font-size: 1rem;
+    align-items: center;
+  }
+  .sectionTitleForwhyTheseChanges :nth-child(2) {
+    margin-top: 10px;
+  }
+}
+
+.closeBefore {
+  background-color: #F3FFE2;
+  width: 2vw;
+  height: 3vh;
+  border: 1px solid #4c7c04;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4c7c04;
+}
+.closeBefore svg {
+  height: 60%;
+  width: 60%;
+}
+@media (max-width: 1300px) {
+  .closeBefore {
+    width: 2vw;
+  }
+}
+@media (max-width: 900px) {
+  .closeBefore {
+    width: 3vw;
+    height: 4vh;
+  }
+}
+@media (max-width: 700px) {
+  .closeBefore {
+    width: 4vw;
+  }
+}
+@media (max-width: 432px) {
+  .closeBefore {
+    height: 3vh;
+    width: 5vw;
+  }
+}
+
+.afterright {
+  background-color: #F3FFE2;
+  width: 2vw;
+  height: 3vh;
+  border: 1px solid #4c7c04;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4c7c04;
+}
+.afterright svg {
+  height: 60%;
+  width: 60%;
+}
+@media (max-width: 900px) {
+  .afterright {
+    width: 3vw;
+    height: 4vh;
+  }
+}
+@media (max-width: 700px) {
+  .afterright {
+    width: 4vw;
+  }
+}
+@media (max-width: 432px) {
+  .afterright {
+    height: 3vh;
+    width: 5vw;
+  }
+}
+
+.substitutionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 20px;
+}
+@media (max-width: 1000px) {
+  .substitutionsContainer {
+    font-size: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .substitutionsContainer {
+    font-size: 13px;
+  }
+}
+@media (max-width: 600px) {
+  .substitutionsContainer {
+    font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+  .substitutionsContainer {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 370px) {
+  .substitutionsContainer {
+    font-size: 11px;
+  }
+}
+
+.substitutionCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4c7c04;
+}
+
+.substitutionChange {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4c7c04;
+}
+.substitutionChange :nth-child(1) {
+  color: rgb(149, 146, 146);
+  text-decoration: line-through;
+}
+
+#WhyTheseChangesIcon {
+  background-color: #F3FFE2;
+  width: 1.5vw;
+  height: 3vh;
+  border: 1px solid #4c7c04;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4c7c04;
+}
+#WhyTheseChangesIcon svg {
+  height: 60%;
+  width: 60%;
+}
+@media (max-width: 1000px) {
+  #WhyTheseChangesIcon {
+    width: 2.2vw;
+    height: 3.2vh;
+  }
+}
+@media (max-width: 800px) {
+  #WhyTheseChangesIcon {
+    width: 3.4vw;
+  }
+}
+@media (max-width: 500px) {
+  #WhyTheseChangesIcon {
+    height: 3vh;
+    width: 4.5vw;
+  }
+}
+
+.questionvg {
+  color: #4c7c04;
+  height: 3vh;
+  width: 3vw;
+}
+@media (max-width: 1440px) {
+  .questionvg {
+    height: 3.3vh;
+    width: 3.3vw;
+  }
+}
+@media (max-width: 854px) {
+  .questionvg {
+    height: 3.9vh;
+    width: 3.9vw;
+  }
+}
+
+#arrowright {
+  color: #4c7c04;
+  height: 4vh;
+  width: 4vw;
+}
+@media (max-width: 1000px) {
+  #arrowright {
+    height: 3.3vh;
+    width: 3.3vw;
+  }
+}
+@media (max-width: 500px) {
+  #arrowright {
+    display: none;
+  }
+}
+
+.arrowrightForsubstitution {
+  color: #4c7c04;
+  height: 2vh;
+  width: 2vw;
+}
+@media (max-width: 1000px) {
+  .arrowrightForsubstitution {
+    height: 3.3vh;
+    width: 3.3vw;
+  }
+}
+@media (max-width: 800px) {
+  .arrowrightForsubstitution {
+    height: 1.7vh;
+    width: 1.7vw;
+  }
+}
+@media (max-width: 700px) {
+  .arrowrightForsubstitution {
+    height: 2.5vh;
+    width: 2.6vw;
+  }
+}
+
+.svg {
+  height: 4vh;
+  width: 4vw;
+}
+.svg img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+@media (max-width: 1409px) {
+  .svg {
+    height: 2.5vh;
+    width: 2.5vw;
+  }
+}
+@media (max-width: 785px) {
+  .svg {
+    height: 6vh;
+    width: 6vw;
+  }
+}
+@media (max-width: 655px) {
+  .svg {
+    height: 4vh;
+    width: 4vw;
+  }
+}
+@media (max-width: 500px) {
+  .svg {
+    height: 10vh;
+    width: 10vw;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  color: #4C7C04;
+  font-family: "Philosopher";
+  font-size: 1.7rem;
+  gap: 5px;
+}
+@media (max-width: 1200px) {
+  .title {
+    gap: 10px;
+  }
+}
+@media (max-width: 785px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .title {
+    font-size: 1rem;
+  }
+}
+
+.HistoryContainer {
+  margin-top: 30px;
+}
+
+.HistoryTitle {
+  display: flex;
+  align-items: center;
+  color: #4C7C04;
+  font-family: "Philosopher";
+  font-size: 1.7rem;
+}
+@media (max-width: 1409px) {
+  .HistoryTitle {
+    gap: 10px;
+  }
+}
+@media (max-width: 785px) {
+  .HistoryTitle {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .HistoryTitle {
+    font-size: 1rem;
+    align-items: center;
+  }
+}
+
+#HistoryIcon {
+  height: 4vh;
+  margin-top: 10px;
+  width: 4vw;
+}
+@media (max-width: 1409px) {
+  #HistoryIcon {
+    height: 3.5vh;
+    width: 3vw;
+  }
+}
+@media (max-width: 886px) {
+  #HistoryIcon {
+    height: 5vh;
+    width: 5vw;
+  }
+}
+@media (max-width: 753px) {
+  #HistoryIcon {
+    height: 4vh;
+    width: 4vw;
+  }
+}
+@media (max-width: 501px) {
+  #HistoryIcon {
+    height: 5vh;
+    width: 5vw;
+  }
+}
+
+.foodHistoryContext {
+  color: #4C7C04;
+  padding: 10px;
+  border: 1px solid #4c7c04;
+  border-radius: 10px;
+  background-color: #F3FFE2;
+  width: 95%;
+  line-height: 1.7;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 1000px) {
+  .foodHistoryContext {
+    font-size: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .foodHistoryContext {
+    font-size: 13px;
+  }
+}
+@media (max-width: 600px) {
+  .foodHistoryContext {
+    font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+  .foodHistoryContext {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 370px) {
+  .foodHistoryContext {
+    font-size: 11px;
+  }
+}
+@media (max-width: 767px) {
+  .foodHistoryContext {
+    width: 90%;
+  }
+}
+@media (max-width: 450px) {
+  .foodHistoryContext {
+    width: 88%;
+    padding: 8px;
+  }
+}
+
+.funfactContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+#funfactIcon {
+  color: #4C7C04;
+  width: 4vw;
+  height: 4vh;
+}
+@media (max-width: 600px) {
+  #funfactIcon {
+    height: 4.5vh;
+    width: 4.5vw;
+  }
+}
+
+.funFactHeader {
+  display: flex;
+  align-items: center;
+  color: #4C7C04;
+  font-family: "Philosopher";
+  font-size: 1.7rem;
+  padding-left: 10px;
+}
+@media (max-width: 785px) {
+  .funFactHeader {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .funFactHeader {
+    font-size: 1rem;
+    align-items: center;
+  }
+}
+
+.funFactsubtitle {
+  color: #4C7C04;
+  padding: 10px;
+  border: 1px solid #4c7c04;
+  border-radius: 10px;
+  background-color: #F3FFE2;
+  width: 95%;
+  line-height: 1.7;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 1000px) {
+  .funFactsubtitle {
+    font-size: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .funFactsubtitle {
+    font-size: 13px;
+  }
+}
+@media (max-width: 600px) {
+  .funFactsubtitle {
+    font-size: 12px;
+  }
+}
+@media (max-width: 370px) {
+  .funFactsubtitle {
+    font-size: 11px;
+  }
+}
+@media (max-width: 767px) {
+  .funFactsubtitle {
+    width: 90%;
+  }
+}
+@media (max-width: 450px) {
+  .funFactsubtitle {
+    width: 88%;
+    padding: 8px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

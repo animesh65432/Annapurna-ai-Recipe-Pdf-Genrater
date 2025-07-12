@@ -35,11 +35,13 @@ app.get("/genereaterecipePdf", async (req, res) => {
         //         message: "recipe is required",
         //     });
         // }
-
+        const nutritionComparisonBeforeValues = Object.values(data.nutritionComparison.before)
+        const nutritionComparisonAfterValues = Object.values(data.nutritionComparison.after)
+        const title = nutritionTranslations[data.language]
         const recipe = data
         const html = await ejs.renderFile(
             path.join(__dirname, "./views/recipe.ejs"),
-            { recipe }
+            { recipe, title, nutritionComparisonBeforeValues, nutritionComparisonAfterValues }
         );
 
         const browser = await puppeteer.launch({
@@ -52,19 +54,13 @@ app.get("/genereaterecipePdf", async (req, res) => {
         await page.setContent(html, { waitUntil: "networkidle0" });
 
         await page.addStyleTag({
-            path: path.join(__dirname, "public/styles/recipe.css")
+            path: path.join(__dirname, "public/styles/css/style.css")
         });
 
 
         const pdfBuffer = await page.pdf({
             format: "A4",
-            printBackground: true,
-            margin: {
-                top: "20px",
-                right: "20px",
-                bottom: "20px",
-                left: "20px",
-            },
+            printBackground: true
         });
 
         await browser.close();

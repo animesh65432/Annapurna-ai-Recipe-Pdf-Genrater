@@ -21,11 +21,16 @@ body {
     padding: 0;
 }
 
-.RecipeMainContainer {
-    height: 100%;
-    width: 100%;
+.part{
+    height: 100vh;
+    width: 100vw;
 }
-
+.borderpart{
+    margin-left: auto;
+    margin-right: auto;
+    height: 95vh;
+    width: 95vw;
+}
 .FoodtitleHeader {
     display: flex;
     width: 100%;
@@ -103,21 +108,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-
-    @media (max-width:1200px) {
-        padding-left: 25px;
-    }
-
     @media (max-width:880px) {
         gap: 0px;
-    }
-
-    @media (max-width:1000px) {
-        padding-left: 25px;
-    }
-
-    @media (max-width:500px) {
-        padding-left: 6px;
     }
 }
 
@@ -246,38 +238,6 @@ body {
     }
 }
 
-RecipeContainer {
-    display: flex;
-    padding-top: 30px;
-    flex-direction: column;
-    gap: 30px;
-    padding-left: 20px;
-
-    @media (max-width:1200px) {
-        padding-left: 25px;
-    }
-
-    @media (max-width:880px) {
-        padding-top: 20px;
-    }
-
-    @media (max-width:1000px) {
-        padding-left: 25px;
-        gap: 15px;
-    }
-
-    @media (max-width:600px) {
-        padding-top: 10px;
-        gap: 10px;
-    }
-
-    @media (max-width:500px) {
-        padding-top: 0px;
-        padding-left: 5px;
-        gap: 25px;
-    }
-}
-
 .RecipeContainertitlewithimg {
     display: flex;
     align-items: center;
@@ -285,6 +245,7 @@ RecipeContainer {
     font-family: "Philosopher";
     font-size: 1.5rem;
     gap: 10px;
+    margin-top: 10px;
 
     @media (max-width:1200px) {
         gap: 10px;
@@ -356,12 +317,7 @@ RecipeContainer {
     gap: 30px;
     padding-top: 30px;
 
-    @media (max-width:1200px) {
-        padding-left: 30px;
-    }
-
     @media (max-width:500px) {
-        padding-left: 0px;
         gap: 10px;
         padding-top: 15px;
     }
@@ -411,12 +367,8 @@ RecipeContainer {
 .comparisonContainer {
     display: flex;
     width: 95%;
-    margin-left: 30px;
-
-    @media (max-width:1200px) {
-        margin-left: 20px;
-    }
-
+    margin-left: auto;
+    margin-right: auto;
     @media (max-width:636px) {
         width: 92%;
     }
@@ -762,6 +714,9 @@ RecipeContainer {
         height: 60%;
         width: 60%;
     }
+    @media (max-width:1300px) {
+        width: 2vw
+    }
 
     @media (max-width:900px) {
         width: 3vw;
@@ -856,9 +811,9 @@ RecipeContainer {
     }
 }
 
-.WhyTheseChangesIcon {
+#WhyTheseChangesIcon {
     background-color: #F3FFE2;
-    width: 2vw;
+    width: 1.5vw;
     height: 3vh;
     border: 1px solid #4c7c04;
     border-radius: 50%;
@@ -872,18 +827,18 @@ RecipeContainer {
         width: 60%;
     }
 
-    @media (max-width:900px) {
-        width: 3vw;
-        height: 4vh;
+    @media (max-width:1000px) {
+        width: 2.2vw;
+        height: 3.2vh;
     }
 
-    @media (max-width:700px) {
-        width: 4vw;
+    @media (max-width:800px) {
+        width: 3.4vw;
     }
 
-    @media (max-width:432px) {
+    @media (max-width:500px) {
         height: 3vh;
-        width: 5vw;
+        width: 4.5vw;
     }
 }
 
@@ -1003,7 +958,6 @@ RecipeContainer {
     color: #4C7C04;
     font-family: "Philosopher";
     font-size: 1.7rem;
-    padding-left: 10px;
 
     @media (max-width:1409px) {
         gap: 10px;
@@ -1019,7 +973,7 @@ RecipeContainer {
     }
 }
 
-.HistoryIcon {
+#HistoryIcon {
     height: 4vh;
     margin-top: 10px;
     width: 4vw;
@@ -1027,7 +981,6 @@ RecipeContainer {
     @media(max-width:1409px) {
 
         height: 3.5vh;
-
         width: 3vw;
 
     }
@@ -1096,7 +1049,7 @@ RecipeContainer {
     margin-top: 20px;
 }
 
-.funfactIcon {
+#funfactIcon {
     color: #4C7C04;
     width: 4vw;
     height: 4vh;
@@ -1148,9 +1101,7 @@ RecipeContainer {
         font-size: 12px;
     }
 
-    @media (max-width:500px) {
-        padding-left: 20px;
-    }
+
 
     @media (max-width:370px) {
         font-size: 11px;

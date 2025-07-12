@@ -4,243 +4,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./recipe.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="FoodtitleHeader">
-        <div class="HealthyFoodIcon">
-            <img src="/HealthyfoodIcon.svg" />
-        </div>
-        <div class="Foodtitle">
-            <%= recipe.dish%>
-        </div>
-    </div>
+    <section class="part">
+        <div class="borderpart">
+            <div class="FoodtitleHeader">
+                <div class="HealthyFoodIcon">
+                    <img src="http://localhost:3000/HealthyfoodIcon.svg" />
+                </div>
+                <div class="Foodtitle">
+                    <%= recipe.dish%>
+                </div>
+            </div>
 
-    <div class="ingredientsContainer">
-        <div class="ingredientsContainertitle">
-            <div>
-                <img src="./ingredients.svg" class="ingredientsSvg " alt="Ingredients Icon" />
-            </div>
-            <div>
-                <%= title.ingredients %>
-            </div>
-        </div>
-        <div class="ingredientsGrid">
-            <% recipe?.healthierVersion.ingredients.forEach((ingredient, index)=> { %>
-                <div class="ingredient">
-                    <div class="Checkbox">
+            <div class="ingredientsContainer">
+                <div class="ingredientsContainertitle">
+                    <div>
+                        <img src="http://localhost:3000/ingredients.svg" class="ingredientsSvg "
+                            alt="Ingredients Icon" />
                     </div>
                     <div>
-                        <%= ingredient %>
+                        <%= title.ingredients %>
                     </div>
                 </div>
-                <% }) %>
-        </div>
-    </div>
-    <div class="RecipeContainer">
-        <div class="RecipeContainertitlewithimg">
-            <div class="Recipeimg">
-                <img src="./recipe.svg" class="Recipeimg" alt="Recipe Icon" />
-            </div>
-            <div class="RecipeContainertitle">
-                <%= title.steps %>
-            </div>
-        </div>
-
-        <!-- Steps Container -->
-        <div class="RecipeContainerSteps">
-            <% recipe?.healthierVersion.steps.forEach((step, index)=> { %>
-                <div class="recipe">
-                    <div class="Checkbox">
-                    </div>
-                    <div class="recipetext">
-                        <%= step %>
-                    </div>
-                </div>
-                <% }) %>
-        </div>
-    </div>
-    <div class="whyTheseChanges">
-        <div class="sectionTitle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-heart-icon lucide-heart" id="Svg">
-                <path
-                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-            </svg>
-            <span>
-                <%= title.nutritionComparison %>
-            </span>
-        </div>
-
-        <!-- Comparison Container -->
-        <div class="comparisonContainer">
-            <!-- Before Column -->
-            <div class="BeforcomparisonColumn">
-                <div class="before">
-                    <%= title.before %>
-                </div>
-                <div class="BeforenutritionValues">
-                    <% nutritionComparisonBeforeValues.forEach((value, index)=> { %>
-                        <div class="BeforenutritionValue">
-                            <div class="closeBefore">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
-                                    <path d="M18 6 6 18" />
-                                    <path d="m6 6 12 12" />
-                                </svg>
+                <div class="ingredientsGrid">
+                    <% recipe?.healthierVersion.ingredients.forEach((ingredient, index)=> { %>
+                        <div class="ingredient">
+                            <div class="Checkbox">
                             </div>
                             <div>
-                                <!-- <span>
+                                <%= ingredient %>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+            <div class="RecipeContainer">
+                <div class="RecipeContainertitlewithimg">
+                    <div class="Recipeimg">
+                        <img src="http://localhost:3000/recipe.svg" class="Recipeimg" alt="Recipe Icon" />
+                    </div>
+                    <div class="RecipeContainertitle">
+                        <%= title.steps %>
+                    </div>
+                </div>
+
+                <!-- Steps Container -->
+                <div class="RecipeContainerSteps">
+                    <% recipe?.healthierVersion.steps.forEach((step, index)=> { %>
+                        <div class="recipe">
+                            <div class="Checkbox">
+                            </div>
+                            <div class="recipetext">
+                                <%= step %>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="part">
+        <div class="borderpart">
+            <div class="whyTheseChanges">
+                <div class="sectionTitle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-heart-icon lucide-heart" id="Svg">
+                        <path
+                            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                    </svg>
+                    <span>
+                        <%= title.nutritionComparison %>
+                    </span>
+                </div>
+
+                <!-- Comparison Container -->
+                <div class="comparisonContainer">
+                    <!-- Before Column -->
+                    <div class="BeforcomparisonColumn">
+                        <div class="before">
+                            <%= title.before %>
+                        </div>
+                        <div class="BeforenutritionValues">
+                            <% nutritionComparisonBeforeValues.forEach((value, index)=> { %>
+                                <div class="BeforenutritionValue">
+                                    <div class="closeBefore">
+                                        <svg id xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-x-icon lucide-x">
+                                            <path d="M18 6 6 18" />
+                                            <path d="m6 6 12 12" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <!-- <span>
                                 </span> -->
-                                <span>
-                                    <%= value %>
-                                </span>
-                            </div>
+                                        <span>
+                                            <%= value %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <% }) %>
                         </div>
-                        <% }) %>
-                </div>
-            </div>
+                    </div>
 
-            <!-- Arrow Between Columns -->
-            <div class="arrow">
-                <svg id="ArrowDownUp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-check-check-icon lucide-check-check">
-                    <path d="M18 6 7 17l-5-5" />
-                    <path d="m22 10-7.5 7.5L13 16" />
-                </svg>
-                <svg id="arrowright" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-arrow-right-left-icon lucide-arrow-right-left">
-                    <path d="m16 3 4 4-4 4" />
-                    <path d="M20 7H4" />
-                    <path d="m8 21-4-4 4-4" />
-                    <path d="M4 17h16" />
-                </svg>
+                    <!-- Arrow Between Columns -->
+                    <div class="arrow">
+                        <svg id="ArrowDownUp" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-check-check-icon lucide-check-check">
+                            <path d="M18 6 7 17l-5-5" />
+                            <path d="m22 10-7.5 7.5L13 16" />
+                        </svg>
+                        <svg id="arrowright" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-arrow-right-left-icon lucide-arrow-right-left">
+                            <path d="m16 3 4 4-4 4" />
+                            <path d="M20 7H4" />
+                            <path d="m8 21-4-4 4-4" />
+                            <path d="M4 17h16" />
+                        </svg>
 
-                <!-- Replace <ArrowRightLeft /> and <ArrowDownUp /> with inline SVGs or images if needed -->
-            </div>
+                        <!-- Replace <ArrowRightLeft /> and <ArrowDownUp /> with inline SVGs or images if needed -->
+                    </div>
 
-            <!-- After Column -->
-            <div class="AftercomparisonColumn">
-                <div class="after">
-                    <%= title.after %>
-                </div>
-                <div class="AfternutritionValues">
-                    <% nutritionComparisonAfterValues.forEach((value, index)=> { %>
-                        <div class="AfternutritionValue">
-                            <span class="afterright">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-check-check-icon lucide-check-check">
-                                    <path d="M18 6 7 17l-5-5" />
-                                    <path d="m22 10-7.5 7.5L13 16" />
-                                </svg>
-                            </span>
-                            <div>
-                                <span>
-                                    <%= value %>
-                                </span>
-                            </div>
+                    <!-- After Column -->
+                    <div class="AftercomparisonColumn">
+                        <div class="after">
+                            <%= title.after %>
                         </div>
-                        <% }) %>
+                        <div class="AfternutritionValues">
+                            <% nutritionComparisonAfterValues.forEach((value, index)=> { %>
+                                <div class="AfternutritionValue">
+                                    <span class="afterright">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-check-check-icon lucide-check-check">
+                                            <path d="M18 6 7 17l-5-5" />
+                                            <path d="m22 10-7.5 7.5L13 16" />
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <span>
+                                            <%= value %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <% }) %>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Why These Changes Section -->
-        <div class="whyTheseChangesContainer">
-            <div class="sectionTitleForwhyTheseChanges">
-                <div>
-                    <%= title.whyTheseChanges %>
-                </div>
-                <div>
-                    ?
-                </div>
-            </div>
-
-            <!-- Substitutions -->
-            <div class="substitutionsContainer">
-                <% recipe?.substitutions.forEach((substitution, index)=> { %>
-                    <div class="substitutionCard">
-                        <div class="WhyTheseChangesIcon">
-                            <svg id="substitutionIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw">
-                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                                <path d="M3 3v5h5" />
-                            </svg>
+                <!-- Why These Changes Section -->
+                <div class="whyTheseChangesContainer">
+                    <div class="sectionTitleForwhyTheseChanges">
+                        <div>
+                            <%= title.whyTheseChanges %>
                         </div>
                         <div>
-                            <div class="substitutionChange">
-                                <div class="substitutionItem from">
-                                    <%= substitution.from %>
-                                </div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
-                                    <path d="M18 8L22 12L18 16" />
-                                    <path d="M2 12H22" />
-                                </svg>
-                                <div class="substitutionItem to">
-                                    <%= substitution.to %>
-                                </div>
-                            </div>
-                            <div class="substitutionReason">
-                                <%= substitution.why %>
-                            </div>
+                            ?
                         </div>
                     </div>
-                    <% }) %>
-            </div>
-        </div>
-    </div>
 
-    <div class="HistoryContainer">
-        <div class="HistoryTitle">
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-history-icon lucide-history">
-                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                    <path d="M3 3v5h5" />
-                    <path d="M12 7v5l4 2" />
-                </svg>
+                    <!-- Substitutions -->
+                    <div class="substitutionsContainer">
+                        <% recipe?.substitutions.forEach((substitution, index)=> { %>
+                            <div class="substitutionCard">
+                                <div id="WhyTheseChangesIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw">
+                                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                        <path d="M3 3v5h5" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="substitutionChange">
+                                        <div class="substitutionItem from">
+                                            <%= substitution.from %>
+                                        </div>
+                                        <svg id="substitutionIcon" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-move-right-icon lucide-move-right">
+                                            <path d="M18 8L22 12L18 16" />
+                                            <path d="M2 12H22" />
+                                        </svg>
+                                        <div class="substitutionItem to">
+                                            <%= substitution.to %>
+                                        </div>
+                                    </div>
+                                    <div class="substitutionReason">
+                                        <%= substitution.why %>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
             </div>
-            <div>
-                <%= title.History %>
+    </section>
+    <section class="part">
+        <div class="borderpart">
+            <div class="HistoryContainer">
+                <div class="HistoryTitle">
+                    <div>
+                        <svg id="HistoryIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-history-icon lucide-history">
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                            <path d="M3 3v5h5" />
+                            <path d="M12 7v5l4 2" />
+                        </svg>
+                    </div>
+                    <div>
+                        <%= title.History %>
+                    </div>
+                </div>
+                <div class="foodHistoryContext">
+                    <%= recipe?.foodHistoryContext %>
+                </div>
+            </div>
+            <div class="funfactContainer">
+                <div class="funFactHeader">
+                    <div>
+                        <svg id="funfactIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-lightbulb-icon lucide-lightbulb">
+                            <path
+                                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                            <path d="M9 18h6" />
+                            <path d="M10 22h4" />
+                        </svg>
+                    </div>
+                    <div>
+                        <%= title.funFact %>
+                    </div>
+                </div>
+                <div class="funFactsubtitle">
+                    <%= recipe?.funFact %>
+                </div>
             </div>
         </div>
-        <div class="foodHistoryContext">
-            <%= recipe?.foodHistoryContext %>
         </div>
-    </div>
 
-    <!-- Fun Fact Section -->
-    <div class="funfactContainer">
-        <div class="funFactHeader">
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-lightbulb-icon lucide-lightbulb">
-                    <path
-                        d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-                    <path d="M9 18h6" />
-                    <path d="M10 22h4" />
-                </svg>
-            </div>
-            <div>
-                <%= title.funFact %>
-            </div>
-        </div>
-        <div class="funFactsubtitle">
-            <%= recipe?.funFact %>
-        </div>
-    </div>
+    </section>
+
 
 </body>
 
