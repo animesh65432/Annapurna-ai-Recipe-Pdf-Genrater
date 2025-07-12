@@ -776,7 +776,7 @@
 .closeBefore {
   background-color: #F3FFE2;
   width: 2vw;
-  height: 2.5vh;
+  height: 2vh;
   border: 1px solid #4c7c04;
   border-radius: 50%;
   display: flex;
@@ -814,7 +814,7 @@
 .afterright {
   background-color: #F3FFE2;
   width: 2vw;
-  height: 2.5vh;
+  height: 2vh;
   border: 1px solid #4c7c04;
   border-radius: 50%;
   display: flex;
