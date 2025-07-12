@@ -17,7 +17,7 @@ app.set("views", path.resolve(__dirname, "./views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "/public/styles")));
 app.set("view engine", "ejs");
-app.use(cors({ origin: ["http://localhost:5173", "https://annapurna-ai.tech", `${process.env.BACKEND_URL}`] }));
+app.use(cors({ origin: ["http://localhost:5173", "https://annapurna-ai.tech", `${process.env.BACKEND_URL}`, "http://localhost:8000"] }));
 app.use(express.json());
 
 app.get("/recipe", async (req, res) => {
@@ -36,14 +36,15 @@ app.get("/recipe", async (req, res) => {
 app.post("/genereaterecipePdf/:id", async (req, res) => {
     try {
         const { id } = req.params
+        console.log(id)
 
         if (!id) {
             return res.status(400).json({
                 message: "id is required"
             })
         }
-        const recipe = await axios.get(`${process.env.BACKEND_URL}/recipe/GetRecipe?id=${id}`)
-
+        const reponse = await axios.get(`${process.env.BACKEND_URL}/recipe/GetRecipe?id=${id}`)
+        const recipe = reponse?.data
         if (!recipe) {
             return res.status(400).json({
                 message: "recipe is required",
