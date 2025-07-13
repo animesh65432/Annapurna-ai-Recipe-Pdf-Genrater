@@ -95,8 +95,8 @@ app.post("/genereaterecipePdf/:id", async (req, res) => {
                 message: "id is required"
             })
         }
-        // const reponse = await axios.get(`${process.env.BACKEND_URL}/recipe/GetRecipe?id=${id}`)
-        const recipe = data
+        const reponse = await axios.get(`${process.env.BACKEND_URL}/recipe/GetRecipe?id=${id}`)
+        const recipe = reponse.data
         console.log(recipe)
         if (!recipe) {
             return res.status(400).json({
@@ -109,14 +109,23 @@ app.post("/genereaterecipePdf/:id", async (req, res) => {
         const nutritionComparisonAfterValues = Object.values(recipe.nutritionComparison.after)
         const title = nutritionTranslations[recipe.language]
 
-
+        // ✅ Generate HTML with error handling
         const html = await ejs.renderFile(
             path.join(__dirname, "./views/recipe.ejs"),
             { recipe, title, nutritionComparisonBeforeValues, nutritionComparisonAfterValues }
         );
 
+        console.log("Generated HTML length:", html.length);
+
+        // ✅ Launch browser with better error handling
         const browser = await puppeteerCore.launch({
-            args: chromium.args,
+            args: [
+                ...chromium.args,
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-gpu'
+            ],
             defaultViewport: chromium.defaultViewport,
             executablePath: await chromium.executablePath(),
             headless: chromium.headless
@@ -124,22 +133,41 @@ app.post("/genereaterecipePdf/:id", async (req, res) => {
 
         const page = await browser.newPage();
 
-        await page.setContent(html, { waitUntil: "networkidle0" });
+        // ✅ Set content with proper waiting
+        await page.setContent(html, {
+            waitUntil: ["networkidle0", "domcontentloaded"]
+        });
 
+        // ✅ Add CSS with existence check
         const cssPath = path.join(__dirname, "public/styles/css/style.css");
-        const cssContent = fs.readFileSync(cssPath, "utf8");
-        await page.addStyleTag({ content: cssContent });
+        if (fs.existsSync(cssPath)) {
+            const cssContent = fs.readFileSync(cssPath, "utf8");
+            await page.addStyleTag({ content: cssContent });
+            console.log("CSS added successfully");
+        } else {
+            console.warn("CSS file not found:", cssPath);
+        }
 
+        // ✅ Wait for content to render
+        // await page.waitForTimeout(2000);
+
+        // ✅ Generate PDF with proper options
         const pdfBuffer = await page.pdf({
             format: "A4",
             printBackground: true,
+            preferCSSPageSize: true
         });
 
         await browser.close();
 
+        console.log("PDF generated, buffer length:", pdfBuffer.length);
 
+        if (!pdfBuffer || pdfBuffer.length === 0) {
+            throw new Error("Generated PDF is empty");
+        }
 
         const safeDishName = recipe.dish.replace(/[^a-z0-9_\-]/gi, "_");
+
         res.set({
             "Content-Type": "application/pdf",
             "Content-Disposition": `attachment; filename="${safeDishName}.pdf"`,
